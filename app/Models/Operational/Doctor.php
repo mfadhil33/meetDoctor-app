@@ -29,4 +29,17 @@ class Doctor extends Model
         'updated_at',
         'deleted_at'
     ];
+
+
+    public function specialist()
+    {
+
+        // 2 parameter
+        return $this->belongsTo('App\Models\MasterData\Specialist', 'specialist_id', 'id');
+    }
+
+    public function appointment() {
+
+      return $this->hasMany('App\Models\Operational\Appointment', 'doctor_id');
+    }
 }
