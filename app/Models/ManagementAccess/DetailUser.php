@@ -47,6 +47,6 @@ class DetailUser extends Model
 
         // 2 parameter
         return $this->belongsTo('App\Models\User', 'user_id', 'id');
-        
+
     }
 }
