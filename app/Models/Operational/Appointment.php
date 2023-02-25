@@ -38,12 +38,16 @@ class Appointment extends Model
     {
 
         // 2 parameter
-        return $this->belongsTo('App\Models\User', 'user_id', 'id');
+        return $this->belongsTo('App\Models\Operational\Doctor', 'doctor_id', 'id');
     }
 
     public function user() {
 
-      return $this->belongsTo('App\Models\MasterData\Consultation', 'doctor_id', 'id');
+      return $this->belongsTo('App\Models\User', 'user_id', 'id');
+    }
+
+    public function consultation(){
+      return $this->belongsTo('App\Models\MasterData\Consultation', 'consultation_id', 'id');
     }
 
      public function transaction(){
