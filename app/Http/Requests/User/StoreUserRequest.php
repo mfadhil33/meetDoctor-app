@@ -5,6 +5,9 @@ namespace App\Http\Requests\User;
 use Illuminate\Foundation\Http\FormRequest;
 use App\Models\User;
 use Symfony\Component\HttpFoundation\Response;
+
+// this rule only at update request
+use Illuminate\Validation\Rule;
 class StoreUserRequest extends FormRequest
 {
     /**
@@ -15,7 +18,7 @@ class StoreUserRequest extends FormRequest
     public function authorize()
     {
         //create middleware  from kernel at here
-        return false;
+        return true;
     }
 
     /**

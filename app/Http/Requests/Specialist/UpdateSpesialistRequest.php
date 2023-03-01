@@ -3,6 +3,10 @@
 namespace App\Http\Requests\Specialist;
 
 use Illuminate\Foundation\Http\FormRequest;
+use App\Models\MasterData\Specialist;
+use Symfony\Component\HttpFoundation\Response;
+// this rule only at update request
+use Illuminate\Validation\Rule;
 class UpdateSpesialistRequest extends FormRequest
 {
     /**
@@ -23,7 +27,12 @@ class UpdateSpesialistRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => [
+                'required', 'string', 'max:255', Rule::unique('specialist')->ignore($this->specialist)
+            ],
+            'price' => [
+                'required', 'string', 'max:255'
+            ]
         ];
     }
 }

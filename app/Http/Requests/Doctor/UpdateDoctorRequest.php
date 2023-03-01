@@ -3,7 +3,10 @@
 namespace App\Http\Requests\Doctor;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Symfony\Component\HttpFoundation\Response;
 
+// this rule only at update request
+use Illuminate\Validation\Rule;
 class UpdateDoctorRequest extends FormRequest
 {
     /**
@@ -13,7 +16,7 @@ class UpdateDoctorRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +27,18 @@ class UpdateDoctorRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'spesialist_id' => [
+                'required', 'integer'
+            ],
+            'name' => [
+                'required', 'string', 'max:255'
+            ],
+            'fee' => [
+                'required', 'string', 'max:255'
+            ],
+            'photo' => [
+                'nullable', 'string', 'max:10000'
+            ]
         ];
     }
 }
