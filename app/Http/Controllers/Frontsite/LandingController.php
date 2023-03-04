@@ -3,12 +3,15 @@
 namespace App\Http\Controllers\Frontsite;
 
 
-use Illuminate\Http\Request;
+
+
+
 
 // use everything here
 // use Gate
-use Auth;
 
+
+// model
 use App\Models\User;
 use App\Models\Operational\Doctor;
 use App\Models\MasterData\Specialist;
@@ -18,6 +21,11 @@ use App\Models\MasterData\Specialist;
 use App\Http\Controllers\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Support\Facades\Storage;
+
+// use Gate;
+
+use Auth;
+
 
 class LandingController extends Controller
 {
@@ -49,7 +57,7 @@ class LandingController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store( $request)
     {
          return abort(404);
     }
@@ -83,7 +91,7 @@ class LandingController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update( $request, $id)
     {
         return abort(404);
     }
